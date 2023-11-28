@@ -1,4 +1,4 @@
-def IP_ADDRESS1 = "10.0.0.5"
+
 pipeline {
     agent any
     stages {
@@ -9,6 +9,7 @@ pipeline {
         // }
         stage('Deliver') {
             steps {
+                def ipaddr1 = "10.0.0.5"
                 // sh 'ls -laR target'
                 sh "chmod +x -R ${env.WORKSPACE}"
                 // az network lb address-pool address remove -g MyResourceGroup --lb-name MyLb --pool-name MyAddressPool -n MyAddress
@@ -17,9 +18,9 @@ pipeline {
                 
 
                 withCredentials([sshUserPrivateKey(credentialsId: "tomcat", keyFileVariable: 'KEYFILE')]) {
-                    sh 'ssh -i $KEYFILE ${IP_ADDRESS1} dhluser@${IP_ADDRESS1} uname -a'
-                    sh './jenkins/scripts/deliver.sh $KEYFILE $BUILD_NUMBER ${IP_ADDRESS1}'
-                    sh './jenkins/scripts/copy.sh $KEYFILE ${IP_ADDRESS1}'
+                    sh 'ssh -i $KEYFILE ${ipaddr1} dhluser@${ipaddr1} uname -a'
+                    sh './jenkins/scripts/deliver.sh $KEYFILE $BUILD_NUMBER ${ipaddr1}'
+                    sh './jenkins/scripts/copy.sh $KEYFILE ${ipaddr1}'
                 }
         }
 
