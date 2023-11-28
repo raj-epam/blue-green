@@ -5,5 +5,7 @@ sudo ls /opt/tomcat/webapps
 sudo mkdir -p /opt/tomcat/backup/$(date +%F)/$2
 sudo cp /opt/tomcat/webapps/sample/index.html /opt/tomcat/backup/$(date +%F)/$2/
 sudo rm -f /opt/tomcat/webapps/sample/index.html
+sudo mkdir -p /opt/tomcat/webapps/sample
+chmod 777 /opt/tomcat/webapps/sample
 EOF
  
