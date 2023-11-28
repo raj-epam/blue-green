@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Modify HTML') {
             steps { 
-                sh "echo <h1>$(date)</h1><br><br>This pipeline got executed at above time</body> </html>  >> index.html"
+                sh "echo \"<h1>$(date)</h1><br>This pipeline got executed at above time</body> </html>\"  >> index.html"
             }
         }
         stage('Deliver') {
