@@ -16,8 +16,8 @@ pipeline {
                 // az network lb address-pool address add -g MyResourceGroup --lb-name MyLb --pool-name MyAddressPool -n MyAddress --vnet MyVnet --ip-address 10.0.0.1
 withCredentials([sshUserPrivateKey(credentialsId: "tomcat", keyFileVariable: 'KEYFILE')]) {
                     sh 'ssh -i $KEYFILE dhluser@10.0.0.5 uname -a'
-                    // sh './jenkins/scripts/deliver.sh $KEYFILE $BUILD_NUMBER 10.0.0.5'
-                    // sh './jenkins/scripts/copy.sh $KEYFILE 10.0.0.5'
+                    sh './jenkins/scripts/deliver.sh $KEYFILE $BUILD_NUMBER 10.0.0.5'
+                    sh './jenkins/scripts/copy.sh $KEYFILE 10.0.0.5'
                 }
         }
 
