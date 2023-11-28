@@ -2,11 +2,11 @@ def IP_ADDRESS1 = "10.0.0.5"
 pipeline {
     agent any
     stages {
-        stage('Modify HTML') {
-            steps { 
-                sh "echo $date  >> index.html"
-            }
-        }
+        // stage('Modify HTML') {
+        //     steps { 
+        //         sh "echo ${date}  >> index.html"
+        //     }
+        // }
         stage('Deliver') {
             steps {
                 // sh 'ls -laR target'
