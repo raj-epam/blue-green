@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Modify HTML') {
             steps { 
-                sh "echo ${date}  >> index.html"
+                sh "sed -i 's/BUILDID/$BUILD_NUMBER/g' index.html"
             }
         }
         stage('Deploy_Server1') {
